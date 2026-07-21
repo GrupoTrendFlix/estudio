@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estúdio TrendFlix — Fotografia Profissional em Parauapebas</title>
+<meta name="description" content="Estúdio fotográfico profissional em Parauapebas-PA. Ensaios corporativos, aniversário, mães, campanhas e posicionamento de imagem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg-soft: #121212;
+    --bg-card: #161616;
+    --text: #e8e8e8;
+    --muted: #8a8a8a;
+    --white: #fafafa;
+    --pink: #e91e8c;
+    --orange: #ff6b00;
+    --purple: #c026d3;
+    --gradient: linear-gradient(135deg, #ff6b00, #e91e8c, #c026d3);
+    --gradient-soft: linear-gradient(135deg, rgba(255,107,0,0.15), rgba(233,30,140,0.15), rgba(192,38,211,0.15));
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: padding 0.3s;
+  }
+  nav.scrolled { padding: 14px 40px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 38px; width: auto; }
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .nav-logo-text em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.3s;
+    font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--gradient);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 500 !important;
+    letter-spacing: 0.1em !important;
+  }
+  .nav-cta:hover { transform: translateY(-2px); }
+
+  .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(233,30,140,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,107,0,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 60px 60px 60px 80px;
+    position: relative; z-index: 2;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 0.7rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 28px;
+    font-weight: 500;
+    width: fit-content;
+  }
+  .hero-tag::before {
+    content: ''; width: 32px; height: 1px;
+    background: var(--gradient);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+  .hero-title em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 460px;
+    margin-bottom: 22px;
+  }
+  .hero-sub-2 {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 460px;
+    margin-bottom: 44px;
+    opacity: 0.85;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gradient);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(233,30,140,0.3);
+  }
+  .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.4);
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(1) contrast(1.08) saturate(1.05);
+    transition: transform 8s ease;
+    will-change: transform;
+  }
+  .hero-right:hover .hero-image {
+    transform: scale(1.03);
+  }
+  /* Blend lateral suave — fundo preto da foto funde com o site */
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, rgba(10,10,10,0.3) 18%, transparent 40%);
+    z-index: 1; pointer-events: none;
+  }
+  /* Glow sutil cor do gradiente do site atrás da figura */
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 70%; height: 40%;
+    background: radial-gradient(ellipse, rgba(233,30,140,0.12) 0%, rgba(255,107,0,0.06) 50%, transparent 70%);
+    z-index: 0; pointer-events: none;
+    filter: blur(30px);
+  }
+
+  /* ============ MARQUEE ============ */
+  .marquee-wrap {
+    overflow: hidden;
+    padding: 28px 0;
+    background: linear-gradient(90deg, transparent, rgba(233,30,140,0.05), transparent);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .marquee {
+    display: flex; gap: 60px;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+    align-items: center;
+  }
+  .marquee span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--muted);
+    white-space: nowrap;
+    font-weight: 400;
+  }
+  .marquee b {
+    color: var(--pink);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ============ SECTIONS ============ */
+  section { padding: 120px 40px; position: relative; }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 0.7rem; letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .section-label::before {
+    content: ''; width: 32px; height: 1px;
+    background: var(--gradient);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .section-title em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section-desc {
+    font-size: 1.02rem;
+    color: var(--muted);
+    max-width: 620px;
+    line-height: 1.8;
+  }
+
+  /* ============ SOBRE ============ */
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .sobre-text p {
+    font-size: 1rem; line-height: 1.9;
+    color: var(--muted); margin-bottom: 20px;
+  }
+  .sobre-text p strong { color: var(--white); font-weight: 500; }
+  .sobre-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    margin-top: 40px;
+  }
+  .feat {
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: 0.88rem; color: var(--text);
+  }
+  .feat-icon {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--gradient-soft);
+    border: 1px solid rgba(233,30,140,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+  .feat strong { display: block; color: var(--white); font-weight: 500; margin-bottom: 4px; font-size: 0.92rem; }
+  .feat span { color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+
+  .sobre-visual {
+    position: relative;
+    height: 580px;
+    overflow: hidden;
+    border-radius: 0;        /* sem borda arredondada */
+    background: var(--bg);
+  }
+  /* Foto do estúdio como fundo */
+  .sobre-studio-img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 8s ease;
+  }
+  .sobre-visual:hover .sobre-studio-img {
+    transform: scale(1.04);
+  }
+  /* Fade suave nas laterais e no topo/base — sem corte duro */
+  .sobre-visual::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right,  var(--bg) 0%, transparent 22%),
+      linear-gradient(to left,   var(--bg) 0%, transparent 22%),
+      linear-gradient(to bottom, var(--bg) 0%, transparent 18%),
+      linear-gradient(to top,    var(--bg) 0%, transparent 22%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ============ PACOTES ============ */
+  .pacotes-section {
+    background: var(--bg);
+    padding: 100px 0 80px;
+  }
+  .pacotes-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .pacotes-header .section-desc {
+    max-width: 480px;
+    margin: 14px auto 0;
+    color: var(--muted);
+    font-size: 0.97rem;
+    line-height: 1.7;
+  }
+  .pacotes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pacote-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 20px 22px;
+    text-decoration: none;
+    color: var(--white);
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pacote-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--orange), var(--pink));
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .pacote-card:hover {
+    background: rgba(233,30,140,0.08);
+    border-color: rgba(233,30,140,0.25);
+    transform: translateY(-3px);
+  }
+  .pacote-card:hover::before { opacity: 1; }
+  .pacote-card-wide {
+    grid-column: span 3;
+  }
+  .pacote-emoji {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+  }
+  .pacote-info { flex: 1; }
+  .pacote-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .pacote-info p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .pacote-arrow {
+    font-size: 1.1rem;
+    color: var(--pink);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .pacote-card:hover .pacote-arrow { transform: translateX(4px); }
+
+  /* ============ ALUGUEL DO ESTÚDIO ============ */
+  .aluguel-section {
+    background: var(--bg);
+    padding: 100px 0;
+    position: relative;
+  }
+  .aluguel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  /* Foto */
+  .aluguel-visual {
+    position: relative;
+    height: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .aluguel-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 8s ease;
+  }
+  .aluguel-visual:hover .aluguel-img { transform: scale(1.04); }
+  .aluguel-img-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right,  rgba(10,10,10,0.25) 0%, transparent 30%),
+      linear-gradient(to left,   rgba(10,10,10,0.25) 0%, transparent 30%),
+      linear-gradient(to bottom, rgba(10,10,10,0.5)  0%, transparent 25%),
+      linear-gradient(to top,    rgba(10,10,10,0.6)  0%, transparent 30%);
+    border-radius: 16px;
+    pointer-events: none;
+  }
+  .aluguel-badge-wrap {
+    position: absolute; bottom: 22px; left: 22px; z-index: 2;
+  }
+  .aluguel-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(10,10,10,0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 7px 16px;
+    font-size: 0.75rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .aluguel-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    display: inline-block;
+    box-shadow: 0 0 6px rgba(34,197,94,0.7);
+    animation: aluguelPulse 2s infinite;
+  }
+  @keyframes aluguelPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.6; transform: scale(1.4); }
+  }
+  /* Texto */
+  .aluguel-question {
+    font-size: 1rem;
+    color: var(--pink);
+    font-style: italic;
+    font-weight: 400;
+    margin: 16px 0 20px;
+    line-height: 1.5;
+  }
+  .aluguel-desc {
+    font-size: 0.97rem;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .aluguel-desc strong { color: var(--white); font-weight: 500; }
+  .aluguel-itens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 28px 0;
+  }
+  .aluguel-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .aluguel-item-icon {
+    font-size: 1.2rem; flex-shrink: 0; margin-top: 1px;
+  }
+  .aluguel-item strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  .aluguel-item span {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .aluguel-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 32px;
+  }
+  .aluguel-tags span {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50px;
+    padding: 5px 14px;
+  }
+  .aluguel-cta { display: inline-flex; align-items: center; gap: 8px; }
+
+  /* ============ SERVIÇOS ============ */
+  .servicos { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); }
+  .servicos-head {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: end; margin-bottom: 80px;
+  }
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .servicos-grid-mobile { display: none; }
+  .servico-mobile {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 28px 16px;
+    border-radius: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .servico-mobile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient);
+    opacity: 0.5;
+  }
+  .servico-mobile .servico-icon {
+    width: 50px; height: 50px;
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  .servico-mobile h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .servico {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 40px 32px;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .servico::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .servico:hover {
+    transform: translateY(-6px);
+    border-color: rgba(233,30,140,0.3);
+  }
+  .servico:hover::before { transform: scaleX(1); }
+
+  .servico-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: var(--gradient-soft);
+    border: 1px solid rgba(233,30,140,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+  .servico-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .servico-desc {
+    font-size: 0.9rem; line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .servico-list {
+    list-style: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 20px;
+  }
+  .servico-list li {
+    font-size: 0.82rem;
+    color: var(--text);
+    padding: 8px 0;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .servico-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--pink);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ============ PORTFÓLIO ============ */
+  .portfolio { background: var(--bg); padding: 120px 0; overflow: hidden; }
+  .portfolio-head {
+    text-align: center;
+    margin-bottom: 70px;
+    padding: 0 40px;
+  }
+  .portfolio-head .section-label,
+  .portfolio-head .section-title { 
+    justify-content: center; 
+  }
+  .portfolio-head .section-desc { margin: 24px auto 0; }
+  .portfolio-head .section-label { display: inline-flex; }
+
+  /* Faixas animadas estilo cinema */
+  .portfolio-row {
+    margin-bottom: 50px;
+    overflow: hidden;
+    position: relative;
+  }
+  .portfolio-row:last-child { margin-bottom: 0; }
+
+  .row-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    padding: 0 40px;
+    margin-bottom: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .row-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .row-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .row-title em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .row-title::before {
+    content: '';
+    width: 4px; height: 24px;
+    background: var(--gradient);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .row-emotion {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    padding-left: 18px;
+    line-height: 1.4;
+  }
+  .row-count {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    padding-top: 4px;
+  }
+
+  .row-track-wrap {
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .row-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    will-change: transform;
+  }
+
+  /* Animação para esquerda */
+  .row-track.slide-left {
+    animation: slideLeft 60s linear infinite;
+  }
+  @keyframes slideLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 8px)); }
+  }
+
+  /* Animação para direita */
+  .row-track.slide-right {
+    animation: slideRight 60s linear infinite;
+  }
+  @keyframes slideRight {
+    from { transform: translateX(calc(-50% - 8px)); }
+    to { transform: translateX(0); }
+  }
+
+  /* Pausa quando o usuário passa o mouse */
+  .row-track-wrap:hover .row-track {
+    animation-play-state: paused;
+  }
+
+  .row-card {
+    flex-shrink: 0;
+    width: 280px;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: var(--bg-card);
+    transition: transform 0.3s ease;
+  }
+  .row-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease, filter 0.4s;
+  }
+  .row-card:hover {
+    transform: scale(1.04);
+    z-index: 2;
+  }
+  .row-card:hover img {
+    filter: brightness(1.1);
+  }
+  .row-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .row-card:hover::after { opacity: 1; }
+
+  /* Cards diferentes para certas categorias */
+  .row-card.tall { height: 420px; width: 260px; }
+  .row-card.wide { width: 360px; height: 360px; }
+
+  /* ============ ESPAÇO ============ */
+  .espaco {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    padding: 120px 40px;
+  }
+  .espaco-content {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .espaco-content .section-label { 
+    display: inline-flex; 
+    justify-content: center; 
+  }
+  .espaco-content .section-title { 
+    justify-content: center; 
+  }
+  .espaco-content .section-desc { 
+    margin: 24px auto 0; 
+  }
+  .espaco-list {
+    margin-top: 50px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px;
+    text-align: left;
+  }
+  .espaco-item {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text);
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 16px 18px;
+    border-radius: 10px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .espaco-item:hover {
+    border-color: rgba(233,30,140,0.3);
+    transform: translateY(-2px);
+  }
+  .espaco-item-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gradient);
+    flex-shrink: 0;
+  }
+
+  /* ============ LOCALIZAÇÃO ============ */
+  .local {
+    background: var(--bg);
+    padding: 120px 40px;
+  }
+  .local-card {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-soft));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 24px;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .local-card::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(233,30,140,0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .local-info { position: relative; z-index: 1; }
+  .local-pin {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+  }
+  .local-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .local-title em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .local-address {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+  .local-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .local-visual {
+    height: 320px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,107,0,0.1), rgba(192,38,211,0.1));
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .local-visual::before {
+    content: '📍';
+    position: absolute;
+    font-size: 14rem;
+    opacity: 0.08;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .local-visual-text {
+    text-align: center;
+    z-index: 1;
+  }
+  .local-visual-text strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .local-visual-text span {
+    font-size: 0.8rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============ CTA FINAL ============ */
+  .cta {
+    background: var(--bg);
+    padding: 140px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(233,30,140,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .cta-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  .cta-eyebrow {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: 0.72rem; letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+  .cta-eyebrow::before, .cta-eyebrow::after {
+    content: ''; width: 40px; height: 1px;
+    background: var(--gradient);
+  }
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .cta-title em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .cta-desc {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--bg-soft);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 60px 40px 30px;
+  }
+  .footer-content {
+    max-width: 1280px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+  }
+  .footer-logo-wrap {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 18px;
+  }
+  .footer-logo-wrap img { height: 36px; width: auto; }
+  .footer-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .footer-logo-text em {
+    font-style: italic;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .footer-brand p {
+    font-size: 0.86rem; color: var(--muted);
+    line-height: 1.7; max-width: 280px;
+  }
+  .footer-col h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul a {
+    font-size: 0.86rem;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+  .footer-col ul a:hover { color: var(--pink); }
+
+  .footer-bottom {
+    max-width: 1280px; margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .footer-link-agencia {
+    font-size: 0.78rem;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+  .footer-link-agencia:hover {
+    color: var(--pink);
+  }
+
+  /* ============ FLOAT WHATS ============ */
+  .float-whats {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 58px; height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 50;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+    transition: transform 0.3s, opacity 0.3s;
+    animation: pulse 2s infinite;
+  }
+  .float-whats svg {
+    width: 30px; height: 30px;
+    display: block;
+  }
+  .float-whats:hover { transform: scale(1.1); }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 8px 40px rgba(37,211,102,0.7); }
+  }
+
+  /* ============ LIGHTBOX ============ */
+  .lightbox {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.97);
+    z-index: 999;
+    align-items: center; justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+    gap: 0;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img-wrap {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    max-width: 92vw; max-height: 85vh;
+    flex: 1;
+  }
+  .lightbox img {
+    max-width: 100%; max-height: 85vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+    transition: opacity 0.2s ease;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px; right: 20px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    z-index: 1001;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.22); }
+  .lightbox-arrow {
+    position: fixed;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.4rem;
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    z-index: 1001;
+  }
+  .lightbox-arrow:hover { background: rgba(233,30,140,0.3); transform: translateY(-50%) scale(1.08); }
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+  .lightbox-counter {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.15em;
+    margin-top: 14px;
+    text-align: center;
+  }
+  .lightbox-caption {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+    font-style: italic;
+  }
+  /* Click hint on cards */
+  .row-card::before {
+    content: '⊕';
+    position: absolute;
+    top: 12px; right: 12px;
+    z-index: 3;
+    color: white;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+  .row-card:hover::before { opacity: 1; }
+
+  @media (max-width: 720px) {
+    /* NAV - menu compacto visível, esconde texto da logo */
+    nav { padding: 12px 14px; gap: 8px; }
+    .nav-logo img { height: 30px; }
+    .nav-logo-text { display: none; }
+    .nav-logo { flex-shrink: 0; }
+    .nav-links { 
+      display: flex !important; 
+      gap: 10px;
+      justify-content: center;
+      flex: 1;
+    }
+    .nav-links a { font-size: 0.56rem; letter-spacing: 0.05em; }
+    .nav-cta { 
+      display: inline-flex !important; 
+      padding: 7px 12px; 
+      font-size: 0.58rem;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+
+    /* HERO mobile — foto e texto sobrepostos, bordas suaves */
+    .hero { 
+      grid-template-columns: 1fr !important; 
+      padding-top: 0 !important;
+      min-height: 100svh;
+      display: flex !important;
+      flex-direction: column;
+      position: relative;
+    }
+    .hero-right { 
+      position: relative;
+      width: 100%;
+      height: 82svh;
+      order: -1;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    /* Bordas suaves — fade para o fundo em todos os lados */
+    .hero-right::before {
+      content: '' !important;
+      display: block !important;
+      position: absolute; inset: 0; z-index: 2;
+      background:
+        /* topo */
+        linear-gradient(to bottom, var(--bg) 0%, transparent 18%),
+        /* esquerda */
+        linear-gradient(to right,  var(--bg) 0%, transparent 22%),
+        /* direita */
+        linear-gradient(to left,   var(--bg) 0%, transparent 22%),
+        /* baixo — começa cedo para o texto sobrepor */
+        linear-gradient(to top,    var(--bg) 0%, transparent 35%) !important;
+      pointer-events: none;
+    }
+    .hero-right::after { display: none !important; }
+    .hero-image { 
+      width: 100%; height: 100%;
+      object-fit: cover; 
+      object-position: center top; 
+      filter: none !important; 
+    }
+    /* Texto sobe sobre a foto — margin-top negativo puxa ele para cima */
+    .hero-left { 
+      position: relative;
+      z-index: 3;
+      margin-top: -28svh;
+      padding: 0 24px 48px;
+      background: transparent;
+    }
+    .hero-tag { margin-bottom: 14px; }
+    .hero-sub, .hero-sub-2 { padding-right: 8px; }
+    .hero-title { font-size: 2.4rem !important; line-height: 1.1; }
+    .hero-sub { font-size: 0.95rem; margin-bottom: 18px; }
+    .hero-sub-2 { font-size: 0.88rem; margin-bottom: 32px; }
+    .hero-label { font-size: 0.62rem; }
+
+    /* Sections - padding mais compactos no mobile */
+    section { padding: 50px 18px; }
+    .portfolio { padding: 50px 0; }
+    .portfolio-head { padding: 0 18px; margin-bottom: 40px; }
+    
+    /* Section titles compactos */
+    .section-title { font-size: 1.9rem !important; line-height: 1.15; }
+    .section-label { font-size: 0.62rem; }
+    .section-desc { font-size: 0.92rem; }
+    
+    /* SOBRE - empilha com menos gap */
+    .sobre-grid { grid-template-columns: 1fr !important; gap: 32px; }
+    .sobre-visual { height: 320px; }
+    .sobre-badge { bottom: 16px; left: 16px; gap: 7px; }
+    .sobre-badge-pill { font-size: 0.68rem; padding: 5px 12px; }
+    .sobre-features { grid-template-columns: 1fr; }
+    .espaco-list { grid-template-columns: 1fr; gap: 10px; margin-top: 32px; }
+    
+    /* PORTFOLIO */
+    .row-header { padding: 0 18px; }
+    .row-title { font-size: 1.25rem; }
+    .row-count { display: none; }
+    .row-emotion { display: none; }
+    .row-count-hide-mobile { display: none; }
+    .row-card { width: 180px; height: 250px; }
+    .row-card.tall { width: 170px; height: 270px; }
+    .row-card.wide { width: 220px; height: 240px; }
+    
+    /* SERVIÇOS - esconde versão completa, mostra versão mobile */
+    .servicos-head { grid-template-columns: 1fr !important; gap: 24px; margin-bottom: 40px; }
+    .servicos-grid { display: none; }
+    .servicos-grid-mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    
+    /* PACOTES */
+    .pacotes-grid { grid-template-columns: 1fr !important; }
+    .pacote-card-wide { grid-column: span 1 !important; }
+
+    /* ALUGUEL */
+    .aluguel-grid { grid-template-columns: 1fr !important; gap: 32px; }
+    .aluguel-visual { height: 280px; }
+    .aluguel-itens { grid-template-columns: 1fr; gap: 10px; }
+
+    /* LOCAL */
+    .local-card { grid-template-columns: 1fr !important; padding: 36px 22px; gap: 30px; }
+    .local-visual { height: 220px; }
+    
+    /* FOOTER */
+    .footer-content { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { justify-content: center; text-align: center; flex-direction: column; gap: 12px; }
+    .footer-brand p { max-width: 100%; }
+    
+    /* CTAs */
+    .hero-ctas, .cta-btns { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-secondary { text-align: center; padding: 14px 24px; }
+    
+    /* Marquee */
+    .marquee span { font-size: 1.2rem; }
+    
+    /* WhatsApp flutuante */
+    .float-whats { width: 48px; height: 48px; bottom: 18px; right: 18px; }
+    .float-whats svg { width: 24px; height: 24px; }
+  }
+
+  @media (max-width: 1024px) and (min-width: 721px) {
+    .hero { grid-template-columns: 1fr; padding-top: 80px; }
+    .hero-right { height: 450px; order: -1; }
+    .hero-left { padding: 50px 32px; }
+    .hero-right::before { display: none !important; }
+    .hero-right::after { display: none; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 60px; }
+    .sobre-visual { height: 420px; }
+    .servicos-head, .local-card { grid-template-columns: 1fr; gap: 40px; }
+    .servicos-grid { grid-template-columns: 1fr 1fr; }
+    .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .row-card { width: 240px; height: 320px; }
+    .row-card.tall { width: 220px; height: 340px; }
+    .row-card.wide { width: 300px; height: 300px; }
+  }
+
+  /* Reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="imgs/logo-icon.png" alt="Estúdio TrendFlix">
+    <span class="nav-logo-text">TREND<em>FLIX</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#portfolio">Portfólio</a>
+    <a href="#pacotes">Pacotes</a>
+    <a href="#aluguel">Aluguel</a>
+    <a href="#local">Localização</a>
+    <a href="#pacotes" class="nav-cta">Pacotes</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Estúdio TrendFlix</div>
+    <h1 class="hero-title">
+      Sua imagem<br>
+      <em>conta</em><br>
+      uma história.
+    </h1>
+    <p class="hero-sub">
+      Acreditamos que fotografar vai muito além de registrar imagens. É transformar <strong style="color:#fff;font-weight:500">presença em memória, identidade em narrativa</strong> e momentos em algo que continua vivo mesmo depois do clique.
+    </p>
+    <p class="hero-sub-2">
+      Cada ensaio é conduzido com direção, sensibilidade e atenção aos detalhes, respeitando o seu tempo, sua essência e a forma como você deseja ser visto. Seja para marcas, famílias ou retratos pessoais, criamos imagens com <strong style="color:#fff;font-weight:500">verdade, estética e intenção</strong>, para que cada fotografia carregue mais do que beleza: carregue significado.
+    </p>
+    <div class="hero-ctas animate delay-3">
+      <a href="#pacotes" class="btn-primary">
+        Ver Pacotes →
+      </a>
+      <a href="#portfolio" class="btn-secondary">
+        Ver Portfólio
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="imgs/hero-main.jpg" alt="Ensaio profissional Estúdio TrendFlix" class="hero-image">
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Campanhas</span><b>✦</b>
+    <span>Corporativo & Posicionamento</span><b>✦</b>
+    <span>Feminino</span><b>✦</b>
+    <span>Casais</span><b>✦</b>
+    <span>Acadêmico</span><b>✦</b>
+    <span>Família</span><b>✦</b>
+    <span>Infantil</span><b>✦</b>
+    <span>Datas Sazonais</span><b>✦</b>
+    <span>Campanhas</span><b>✦</b>
+    <span>Corporativo & Posicionamento</span><b>✦</b>
+    <span>Feminino</span><b>✦</b>
+    <span>Casais</span><b>✦</b>
+    <span>Acadêmico</span><b>✦</b>
+    <span>Família</span><b>✦</b>
+    <span>Infantil</span><b>✦</b>
+    <span>Datas Sazonais</span><b>✦</b>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-text reveal">
+        <div class="section-label">Sobre o Estúdio</div>
+        <h2 class="section-title">
+          Mais que um<br>
+          clique, uma<br>
+          <em>experiência.</em>
+        </h2>
+        <p>
+          Cada sessão é conduzida sem pressa, no seu tempo. Aqui você se sente à vontade para ser você mesmo, e é exatamente isso que entrega resultados extraordinários. Não focamos no relógio. Focamos em você.
+        </p>
+      </div>
+      <div class="sobre-visual reveal">
+        <img class="sobre-studio-img" src="imgs/espaco-studio.jpg" alt="Estúdio TrendFlix">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <div class="portfolio-head reveal">
+      <div class="section-label">Portfólio</div>
+      <h2 class="section-title">Trabalhos que <em>contam histórias.</em></h2>
+      <p class="section-desc">
+        Cada foto carrega uma intenção, uma estratégia e o cuidado de quem entende que sua imagem é seu maior ativo.
+      </p>
+    </div>
+
+    <!--  -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title"> <em>Corporativo</em></div>
+          <div class="row-emotion">Sua presença profissional começa aqui.</div>
+        </div>
+        <div class="row-count">Headshots · LinkedIn · Equipes</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-left">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-01.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-02.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-03.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-04.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-05.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-06.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-07.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-08.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-09.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-10.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-11.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-12.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-13.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-01.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-02.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-03.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-04.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-05.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-06.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-07.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-08.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-09.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-10.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-11.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-12.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/corp-13.jpg" alt="Ensaio corporativo" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <!-- FAMÍLIA &AMP; -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title">Família &amp; <em>Conexões</em></div>
+          <div class="row-emotion">Momentos que você vai querer guardar para sempre.</div>
+        </div>
+        <div class="row-count">Mães · Gestantes · Família · Retratos</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-right">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-01.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-02.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-03.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-04.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-05.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-06.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-07.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-08.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-09.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-10.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-11.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-12.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-13.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-14.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-15.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-16.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-17.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-18.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-19.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-01.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-02.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-03.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-04.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-05.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-06.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-07.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-08.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-09.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-10.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-11.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-12.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-13.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-14.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-01.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-02.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-03.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-04.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-05.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-06.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-07.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-08.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-09.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-10.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-11.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-12.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-13.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-14.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-15.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-16.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-17.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-18.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/maes-19.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-01.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-02.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-03.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-04.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-05.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-06.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-07.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-08.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-09.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-10.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-11.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-12.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-13.jpg" alt="Ensaio família" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fam-14.jpg" alt="Ensaio família" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ENSAIOS DE -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title">Ensaios de <em>Casais</em></div>
+          <div class="row-emotion">Porque alguns momentos merecem ser eternizados.</div>
+        </div>
+        <div class="row-count">Amor · Intimidade · Cumplicidade</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-left">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-01.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-02.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-03.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-04.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-05.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-06.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-07.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-08.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-01.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-02.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-03.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-04.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-05.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-06.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-07.jpg" alt="Ensaio de casais" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/casal-08.jpg" alt="Ensaio de casais" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title"> <em>Aniversários</em></div>
+          <div class="row-emotion">Cada ano é uma conquista que merece ser celebrada.</div>
+        </div>
+        <div class="row-count">Adulto · Infantil · Datas especiais</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-right">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-01.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-02.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-03.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-04.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-05.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-06.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-07.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-08.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-09.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-12.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-13.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-14.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-15.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-17.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-18.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-19.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-20.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-21.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-22.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-23.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-24.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-25.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-26.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-27.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-28.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-29.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-30.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-31.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-32.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-01.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-02.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-03.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-04.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-05.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-06.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-07.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-08.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-09.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-12.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-13.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-14.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-15.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-17.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-18.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-19.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-20.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-21.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-22.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-23.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-24.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-25.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-26.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-27.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-28.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-29.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-30.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-31.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/aniv-32.jpg" alt="Ensaio aniversário" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <!-- CAMPANHAS -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title">Campanhas <em>de Marca</em></div>
+          <div class="row-emotion">Imagens que vendem antes mesmo de dizer uma palavra.</div>
+        </div>
+        <div class="row-count">Moda · Fitness · Produto · E-commerce</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-left">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-01.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-02.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-03.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-04.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-05.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-06.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-07.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-08.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-09.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-10.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-11.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-12.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-13.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-14.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-15.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-16.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-17.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-18.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-19.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-20.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-21.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-01.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-02.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-03.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-04.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-05.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-06.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-07.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-08.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-09.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-10.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-11.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-12.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-13.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-14.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-15.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-16.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-17.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-18.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-19.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-20.jpg" alt="Campanha de marca" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/camp-21.jpg" alt="Campanha de marca" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title"> <em>Acadêmico</em></div>
+          <div class="row-emotion">A conquista de anos de dedicação, registrada com orgulho.</div>
+        </div>
+        <div class="row-count">Enfermagem · Formatura · 50% do curso</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-right">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-01.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-02.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-03.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-04.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-05.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-06.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-07.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-08.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-09.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-10.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-11.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-01.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-02.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-03.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-04.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-05.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-06.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-07.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-08.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-09.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-10.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/acad-11.jpg" alt="Ensaio acadêmico" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ENSAIO -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title">Ensaio <em>Feminino</em></div>
+          <div class="row-emotion">Para a mulher que quer se ver do jeito que realmente é.</div>
+        </div>
+        <div class="row-count">Empoderamento · Beleza · Identidade</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-left">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-01.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-02.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-03.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-04.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-05.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-06.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-07.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-08.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-01.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-02.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-03.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-04.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-05.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-06.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-07.jpg" alt="Ensaio feminino" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/fem-08.jpg" alt="Ensaio feminino" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <!-- NATAL -->
+    <div class="portfolio-row reveal">
+      <div class="row-header">
+        <div class="row-title-wrap">
+          <div class="row-title">Natal <em>2025</em></div>
+          <div class="row-emotion">A magia do Natal eternizada em cada detalhe.</div>
+        </div>
+        <div class="row-count">Família · Crianças · Retratos de fim de ano</div>
+      </div>
+      <div class="row-track-wrap">
+        <div class="row-track slide-right">
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-01.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-02.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-03.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-04.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-05.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-06.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-07.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-08.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-09.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-10.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-11.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-12.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-13.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-14.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-15.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-01.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-02.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-03.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-04.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-05.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-06.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-07.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-08.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-09.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-10.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-11.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-12.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-13.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-14.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+          <div class="row-card" onclick="openLightbox(this)"><img src="imgs/natal-15.jpg" alt="Ensaio Natal 2025" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACOTES -->
+<section id="pacotes" class="pacotes-section">
+  <div class="container">
+    <div class="pacotes-header reveal">
+      <div class="section-label">Nossos Pacotes</div>
+      <h2 class="section-title">Escolha o ensaio<br><em>ideal para você.</em></h2>
+      <p class="section-desc">Cada pacote é pensado para o seu momento. Clique e saiba mais pelo WhatsApp.</p>
+    </div>
+
+    <div class="pacotes-grid reveal">
+
+      <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20de%20Casais%20do%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="pacote-card" target="_blank">
+        <div class="pacote-emoji">❤️</div>
+        <div class="pacote-info">
+          <h3>Casais</h3>
+          <p>Amor, cumplicidade e momentos que ficam para sempre.</p>
+        </div>
+        <div class="pacote-arrow">→</div>
+      </a>
+
+      <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20de%20Gestante%20do%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="pacote-card" target="_blank">
+        <div class="pacote-emoji">🤰</div>
+        <div class="pacote-info">
+          <h3>Gestante</h3>
+          <p>Um momento único, registrado com delicadeza e afeto.</p>
+        </div>
+        <div class="pacote-arrow">→</div>
+      </a>
+
+      <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20Feminino%20do%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="pacote-card" target="_blank">
+        <div class="pacote-emoji">✨</div>
+        <div class="pacote-info">
+          <h3>Feminino</h3>
+          <p>Para a mulher que quer se ver do jeito que realmente é.</p>
+        </div>
+        <div class="pacote-arrow">→</div>
+      </a>
+
+      <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20Acad%C3%AAmico%20do%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="pacote-card" target="_blank">
+        <div class="pacote-emoji">🎓</div>
+        <div class="pacote-info">
+          <h3>Acadêmico</h3>
+          <p>Formatura e conquistas que merecem ser celebradas com orgulho.</p>
+        </div>
+        <div class="pacote-arrow">→</div>
+      </a>
+
+      <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20de%20Anivers%C3%A1rio%20do%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="pacote-card" target="_blank">
+        <div class="pacote-emoji">🎂</div>
+        <div class="pacote-info">
+          <h3>Aniversário</h3>
+          <p>Cada ano é uma conquista. Eternize essa data com estilo.</p>
+        </div>
+        <div class="pacote-arrow">→</div>
+      </a>
+
+      <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20Corporativo%20do%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="pacote-card" target="_blank">
+        <div class="pacote-emoji">👔</div>
+        <div class="pacote-info">
+          <h3>Corporativo</h3>
+          <p>Headshots e retratos que transmitem autoridade e credibilidade.</p>
+        </div>
+        <div class="pacote-arrow">→</div>
+      </a>
+
+      <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20de%20Campanhas%20para%20Marcas%20do%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F" class="pacote-card pacote-card-wide" target="_blank">
+        <div class="pacote-emoji">👗</div>
+        <div class="pacote-info">
+          <h3>Campanhas para Marcas</h3>
+          <p>Conteúdo visual que vende — para marcas de moda, produtos e e-commerce.</p>
+        </div>
+        <div class="pacote-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ALUGUEL DO ESTÚDIO -->
+<section id="aluguel" class="aluguel-section">
+  <div class="container">
+    <div class="aluguel-grid reveal">
+
+      <!-- FOTO DO ESTÚDIO -->
+      <div class="aluguel-visual">
+        <img src="imgs/aluguel-studio.jpg" alt="Estúdio TrendFlix para locação" class="aluguel-img">
+        <div class="aluguel-img-overlay"></div>
+        <div class="aluguel-badge-wrap">
+          <div class="aluguel-badge"><span class="aluguel-dot"></span> Disponível para locação</div>
+        </div>
+      </div>
+
+      <!-- TEXTO + CTA -->
+      <div class="aluguel-text">
+        <div class="section-label">Aluguel do Estúdio</div>
+        <h2 class="section-title">
+          Produza aqui.<br>Com nível <em>profissional.</em>
+        </h2>
+        <p class="aluguel-question">"Você já deixou de fechar um trabalho por falta de estúdio?"</p>
+        <p class="aluguel-desc">
+          Agora você pode produzir no <strong>Estúdio TrendFlix</strong>. Um espaço disponível para locação por hora ou diária, ideal para campanhas, ensaios profissionais, gestantes, corporativos, produtos e criação de conteúdo.
+        </p>
+        <p class="aluguel-desc">
+          Mais estrutura, mais estética e mais valor percebido para o seu trabalho. Reserve seu horário e produza com nível profissional.
+        </p>
+
+        <!-- Itens de estrutura -->
+        <div class="aluguel-itens">
+          <div class="aluguel-item">
+            <span class="aluguel-item-icon">⏱</span>
+            <div>
+              <strong>Por hora</strong>
+              <span>Ideal para sessões rápidas e objetivas</span>
+            </div>
+          </div>
+          <div class="aluguel-item">
+            <span class="aluguel-item-icon">📅</span>
+            <div>
+              <strong>Diária completa</strong>
+              <span>Para produções extensas com mais liberdade</span>
+            </div>
+          </div>
+          <div class="aluguel-item">
+            <span class="aluguel-item-icon">💡</span>
+            <div>
+              <strong>Iluminação profissional</strong>
+              <span>Softboxes, octabox e modificadores inclusos</span>
+            </div>
+          </div>
+          <div class="aluguel-item">
+            <span class="aluguel-item-icon">🎨</span>
+            <div>
+              <strong>Backdrops e cenários</strong>
+              <span>Variados para diferentes estilos de produção</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="aluguel-tags">
+          <span>Campanhas</span><span>Ensaios</span><span>Gestantes</span>
+          <span>Corporativo</span><span>Produtos</span><span>Conteúdo Digital</span>
+        </div>
+
+        <!-- CTA -->
+        <a href="https://wa.me/5594984229768?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20alugar%20o%20Est%C3%BAdio%20TrendFlix.%20Pode%20me%20passar%20uma%20cota%C3%A7%C3%A3o%20de%20valores%20e%20disponibilidade%3F" class="btn-primary aluguel-cta" target="_blank">
+          Solicitar Cotação →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="servicos">
+  <div class="container">
+    <div class="servicos-head">
+      <div class="reveal">
+        <div class="section-label">Nossos Serviços</div>
+        <h2 class="section-title">
+          Soluções para<br>
+          <em>cada momento.</em>
+        </h2>
+      </div>
+      <p class="section-desc reveal">
+        Do retrato corporativo que transmite autoridade ao registro afetivo que eterniza memórias. Atendemos todas as demandas com a mesma dedicação e qualidade técnica.
+      </p>
+    </div>
+
+    <div class="servicos-grid">
+      <div class="servico reveal">
+        <div class="servico-icon">💼</div>
+        <h3 class="servico-title">Corporativo</h3>
+        <p class="servico-desc">Retratos profissionais que transmitem credibilidade e fortalecem sua marca pessoal e empresarial.</p>
+        <ul class="servico-list">
+          <li>Headshots executivos</li>
+          <li>Fotos para LinkedIn</li>
+          <li>Equipes e empresas</li>
+          <li>Material institucional</li>
+        </ul>
+      </div>
+
+      <div class="servico reveal">
+        <div class="servico-icon">🎂</div>
+        <h3 class="servico-title">Aniversário</h3>
+        <p class="servico-desc">Ensaios temáticos que eternizam cada nova fase com sofisticação, leveza e muita personalidade.</p>
+        <ul class="servico-list">
+          <li>15 anos e jovem adulto</li>
+          <li>Ensaios temáticos</li>
+          <li>Cenários personalizados</li>
+          <li>Pré-aniversário</li>
+        </ul>
+      </div>
+
+      <div class="servico reveal">
+        <div class="servico-icon">👗</div>
+        <h3 class="servico-title">Campanhas de Marca</h3>
+        <p class="servico-desc">Conteúdo visual para lojas, marcas de moda e produtos. Ensaios que vendem e geram desejo.</p>
+        <ul class="servico-list">
+          <li>Lookbooks de moda</li>
+          <li>Datas sazonais</li>
+          <li>Catálogos de produto</li>
+          <li>Campanhas publicitárias</li>
+        </ul>
+      </div>
+
+      <div class="servico reveal">
+        <div class="servico-icon">👨‍👩‍👧</div>
+        <h3 class="servico-title">Família</h3>
+        <p class="servico-desc">Registros afetivos que celebram os vínculos mais importantes da vida com sensibilidade artística.</p>
+        <ul class="servico-list">
+          <li>Família completa</li>
+          <li>Mãe e filhos(as)</li>
+          <li>Datas especiais</li>
+          <li>Black & White editorial</li>
+        </ul>
+      </div>
+
+      <div class="servico reveal">
+        <div class="servico-icon">🤰</div>
+        <h3 class="servico-title">Gestante</h3>
+        <p class="servico-desc">Um momento único na vida de uma mulher, registrado com delicadeza, luz e muito afeto.</p>
+        <ul class="servico-list">
+          <li>Ensaio gestante</li>
+          <li>Com parceiro(a)</li>
+          <li>Com filhos</li>
+          <li>Editorial temático</li>
+        </ul>
+      </div>
+
+      <div class="servico reveal">
+        <div class="servico-icon">✨</div>
+        <h3 class="servico-title">Feminino</h3>
+        <p class="servico-desc">Para a mulher que quer se ver do jeito que realmente é — com força, beleza e toda a sua essência.</p>
+        <ul class="servico-list">
+          <li>Empoderamento feminino</li>
+          <li>Retratos autorais</li>
+          <li>Posicionamento pessoal</li>
+          <li>Editorial de moda</li>
+        </ul>
+      </div>
+
+      <div class="servico reveal">
+        <div class="servico-icon">🎯</div>
+        <h3 class="servico-title">Posicionamento de Imagem</h3>
+        <p class="servico-desc">Reposicionamento estratégico da sua presença digital. Foto + direcionamento para conversão real.</p>
+        <ul class="servico-list">
+          <li>Imagem para redes sociais</li>
+          <li>Foto + direcionamento</li>
+          <li>Identidade visual pessoal</li>
+          <li>Material para divulgação</li>
+        </ul>
+      </div>
+
+      <div class="servico reveal">
+        <div class="servico-icon">🎬</div>
+        <h3 class="servico-title">Cenários para Vídeo</h3>
+        <p class="servico-desc">O estúdio é totalmente adaptável para produção audiovisual e gravações profissionais.</p>
+        <ul class="servico-list">
+          <li>Reels e conteúdo digital</li>
+          <li>Vídeos institucionais</li>
+          <li>Entrevistas</li>
+          <li>Conteúdo para marcas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Versão simplificada mobile -->
+    <div class="servicos-grid-mobile">
+      <div class="servico-mobile reveal">
+        <div class="servico-icon">💼</div>
+        <h3>Corporativo</h3>
+      </div>
+      <div class="servico-mobile reveal">
+        <div class="servico-icon">🎂</div>
+        <h3>Aniversário</h3>
+      </div>
+      <div class="servico-mobile reveal">
+        <div class="servico-icon">👗</div>
+        <h3>Campanhas<br>de Marca</h3>
+      </div>
+      <div class="servico-mobile reveal">
+        <div class="servico-icon">👩‍👧</div>
+        <h3>Mães &<br>Família</h3>
+      </div>
+      <div class="servico-mobile reveal">
+        <div class="servico-icon">🎯</div>
+        <h3>Posicionamento<br>de Imagem</h3>
+      </div>
+      <div class="servico-mobile reveal">
+        <div class="servico-icon">🎬</div>
+        <h3>Cenários<br>para Vídeo</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPAÇO -->
+<section class="espaco">
+  <div class="container">
+    <div class="espaco-content reveal">
+      <div class="section-label">Nosso Espaço</div>
+      <h2 class="section-title">
+        Estrutura <em>completa</em> para seu ensaio.
+      </h2>
+      <p class="section-desc">
+        Um espaço pensado em cada detalhe para que sua sessão flua com naturalidade. Equipamentos profissionais, iluminação técnica e a versatilidade necessária para qualquer tipo de produção.
+      </p>
+      <div class="espaco-list">
+        <div class="espaco-item">
+          <div class="espaco-item-dot"></div>
+          Fundo infinito branco
+        </div>
+        <div class="espaco-item">
+          <div class="espaco-item-dot"></div>
+          Backdrops variados
+        </div>
+        <div class="espaco-item">
+          <div class="espaco-item-dot"></div>
+          Iluminação profissional
+        </div>
+        <div class="espaco-item">
+          <div class="espaco-item-dot"></div>
+          Janela com cortina branca
+        </div>
+        <div class="espaco-item">
+          <div class="espaco-item-dot"></div>
+          Espaços personalizáveis
+        </div>
+        <div class="espaco-item">
+          <div class="espaco-item-dot"></div>
+          Adaptável para vídeo
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="local" class="local">
+  <div class="container">
+    <div class="local-card reveal">
+      <div class="local-info">
+        <div class="local-pin">📍</div>
+        <h2 class="local-title">
+          Estamos em<br>
+          <em>Parauapebas — PA</em>
+        </h2>
+        <p class="local-address">
+          Atendimento com hora marcada<br>
+          Toque no botão abaixo para abrir no Google Maps e traçar a rota até nós.
+        </p>
+        <div class="local-btns">
+          <a href="https://share.google/DxwHhCMkGb18W4M29" target="_blank" class="btn-primary">
+            📍 Como Chegar
+          </a>
+          <a href="https://wa.me/5594984229768" class="btn-secondary">
+            💬 Falar Conosco
+          </a>
+        </div>
+      </div>
+      <div class="local-visual">
+        <div class="local-visual-text">
+          <strong>Estúdio TrendFlix</strong>
+          <span>Parauapebas — Pará</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta">
+  <div class="cta-content">
+    <div class="cta-eyebrow">Vamos Criar Juntos</div>
+    <h2 class="cta-title">
+      Pronto para<br>
+      <em>elevar</em> sua imagem?
+    </h2>
+    <p class="cta-desc">
+      Agende sua sessão pelo WhatsApp e venha conhecer o estúdio.
+    </p>
+    <div class="cta-btns">
+      <a href="https://wa.me/5594984229768" class="btn-primary">
+        💬 Chamar no WhatsApp
+      </a>
+      <a href="https://instagram.com/estudiotrendflix" target="_blank" class="btn-secondary">
+        📷 Seguir no Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="imgs/logo-icon.png" alt="Estúdio TrendFlix">
+        <span class="footer-logo-text">TREND<em>FLIX</em></span>
+      </div>
+      <p>Imagens que fortalecem marcas e eternizam momentos.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#pacotes">Pacotes</a></li>
+        <li><a href="#aluguel">Aluguel</a></li>
+        <li><a href="#local">Localização</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Pacotes</h4>
+      <ul>
+        <li><a href="#pacotes">Casais</a></li>
+        <li><a href="#pacotes">Gestante</a></li>
+        <li><a href="#pacotes">Feminino</a></li>
+        <li><a href="#pacotes">Acadêmico</a></li>
+        <li><a href="#pacotes">Aniversário</a></li>
+        <li><a href="#pacotes">Corporativo</a></li>
+        <li><a href="#pacotes">Campanhas</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5594984229768">+55 94 98422-9768</a></li>
+        <li><a href="https://wa.me/5594992344732">+55 94 99234-4732</a></li>
+        <li><a href="mailto:julio@trendflix.com.br">julio@trendflix.com.br</a></li>
+        <li><a href="https://instagram.com/estudiotrendflix" target="_blank">@estudiotrendflix</a></li>
+        <li><a href="https://share.google/DxwHhCMkGb18W4M29" target="_blank">Parauapebas-PA</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Estúdio TrendFlix — Todos os direitos reservados</div>
+    <a href="#" class="footer-link-agencia">Conheça também nossa Agência →</a>
+  </div>
+</footer>
+
+<!-- Float WhatsApp -->
+<a href="https://wa.me/5594984229768" class="float-whats" title="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/>
+  </svg>
+</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-arrow lightbox-prev" onclick="lightboxNav(-1)">‹</button>
+  <button class="lightbox-arrow lightbox-next" onclick="lightboxNav(1)">›</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Lightbox com navegação
+  let lbImages = [];
+  let lbIndex = 0;
+
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    if (!img) return;
+    // Coleta todas as imagens únicas do portfólio (sem duplicatas do loop)
+    const allCards = Array.from(document.querySelectorAll('.row-card img'));
+    const seen = new Set();
+    lbImages = [];
+    allCards.forEach(i => {
+      const src = i.src.split('?')[0];
+      if (!seen.has(src)) { seen.add(src); lbImages.push(i.src); }
+    });
+    lbIndex = lbImages.indexOf(img.src.split('?')[0]);
+    if (lbIndex === -1) { lbIndex = lbImages.findIndex(s => s.includes(img.getAttribute('src'))); }
+    if (lbIndex === -1) lbIndex = 0;
+    showLightboxImg();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showLightboxImg() {
+    const lb = document.getElementById('lightbox-img');
+    lb.style.opacity = '0';
+    setTimeout(() => {
+      lb.src = lbImages[lbIndex];
+      lb.style.opacity = '1';
+    }, 120);
+    document.getElementById('lightbox-counter').textContent = `${lbIndex + 1} / ${lbImages.length}`;
+  }
+
+  function lightboxNav(dir) {
+    lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+    showLightboxImg();
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox' || e.target.closest('.lightbox-img-wrap')) {
+      if (e.target.tagName !== 'IMG') closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+  });
+
+  // Touch/swipe support
+  let tsX = 0;
+  document.getElementById('lightbox').addEventListener('touchstart', e => { tsX = e.touches[0].clientX; });
+  document.getElementById('lightbox').addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tsX;
+    if (Math.abs(dx) > 50) lightboxNav(dx < 0 ? 1 : -1);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
